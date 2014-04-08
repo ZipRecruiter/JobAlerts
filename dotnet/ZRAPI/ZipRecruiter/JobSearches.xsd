@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" >
+        <!-- XML Schema Generated from XML Document on Mon May 13 2013 17:41:34 GMT-0700 (PDT) -->
+        <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+     <xs:element name="job_searches" >
+            <xs:complexType>
+                   <xs:sequence>
+                          <xs:element name="limit" type="xs:int" />
+                          <xs:element name="offset" type="xs:int" />
+                          <xs:element name="total_count" type="xs:string" />
+                          <xs:element name="results" maxOccurs="unbounded" >
+                                 <xs:complexType>
+                                        <xs:sequence>
+                                               <xs:element name="id" type="xs:string" />
+                                           </xs:sequence>
+                                    </xs:complexType>
+                             </xs:element>
+                      </xs:sequence>
+               </xs:complexType>
+        </xs:element>
+ </xs:schema>

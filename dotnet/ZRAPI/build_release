@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+echo "Starting Build"
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+release_folder="$DIR/ZRJobAlertsAPI";
+zr_lib_folder="$DIR/ZipRecruiter";
+zr_example_folder="$DIR/ZRAPI";
+
+echo "Creating $release_folder";
+
+mkdir -p $release_folder
+
+if [ ! -d $release_folder ]; then
+  echo "ERROR: Unable to create $release_folder"
+ exit 1;
+fi
+
+if hash xbuild1 2>/dev/null; then
+  echo "ERROR: xbuild isn't installed or isn't avilable in your \$PATH"
+  exit 1;
+fi
+
+xbuild $zr_lib_folder/ZipRecruiter.JobAlertsAPI.csproj /t:Clean /p:Configuration=Release > build_release.log;
+xbuild $zr_lib_folder/ZipRecruiter.JobAlertsAPI.csproj /p:Configuration=Release >> build_release.log;
+
+rm $release_folder/*.dll
+rm $release_folder/*.txt
+rm $release_folder/*.cs
+
+if [ -e $release_folder.zip ]; then
+  rm $release_folder.zip
+fi
+
+echo "Copying to $release_folder";
+
+cp "$zr_lib_folder/bin/Release/ZipRecruiter.JobAlertsAPI.dll" $release_folder/ZipRecruiter.JobAlertsAPI.dll
+cp $zr_lib_folder/README.txt $release_folder/README.txt
+cp $zr_example_folder/Examples.cs $release_folder/Examples.cs
+
+if [ ! -e "$release_folder/ZipRecruiter.JobAlertsAPI.dll" ]; then
+  echo "ERROR: $release_folder/ZipRecruiter.JobAlertsAPI.dll missing, unable to continue. Check build_release.log";
+  exit 1;
+fi
+
+echo "Compressing $release_folder";
+
+zip -9 -r -j $release_folder.zip $release_folder
+
+echo "Process Complete"
+
+exit 0;

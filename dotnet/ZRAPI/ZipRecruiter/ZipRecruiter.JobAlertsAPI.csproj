@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C73A2D0-5D7A-4755-A26B-8FCA49DA9BB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ZipRecruiter.JobAlertsAPI</RootNamespace>
+    <AssemblyName>ZipRecruiter.JobAlertsAPI</AssemblyName>
+    <ReleaseVersion>1.1</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>ziprecruiter_strong_name.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema\JobSearch.cs" />
+    <Compile Include="Schema\Subscriber.cs" />
+    <Compile Include="Schema\IZipQueryable.cs" />
+    <Compile Include="Resource\JobSearchResource.cs" />
+    <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="JobAlertsAPI.cs" />
+    <Compile Include="Resource\APIResource.cs" />
+    <Compile Include="Resource\SubscriberResource.cs" />
+    <Compile Include="Resource\BatchResource.cs" />
+    <Compile Include="Schema\Batch.cs" />
+    <Compile Include="Helpers\FormUpload.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Schema\" />
+    <Folder Include="Resource\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.txt" />
+  </ItemGroup>
+</Project>

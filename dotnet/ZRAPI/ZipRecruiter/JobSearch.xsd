@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="JobSearch" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="job_search">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:string" minOccurs="0" />
+				<xs:element name="create_time" type="xs:string" minOccurs="0" />
+				<xs:element name="deactivation_reason" type="xs:string" minOccurs="0" />
+				<xs:element name="deactivation_time" type="xs:string" minOccurs="0" />
+				<xs:element name="location" type="xs:string" minOccurs="0" />
+				<xs:element name="search" type="xs:string" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
