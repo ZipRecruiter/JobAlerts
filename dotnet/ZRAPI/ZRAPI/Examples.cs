@@ -51,7 +51,7 @@ namespace ZRAPI
 
 			Console.WriteLine ("The standard instance's API Key is : " + spotInstance.APIKey);
 
-			spotInstance = new JobAlertsAPI("teigheer4esh9too3vah3oor9aish9ru");
+			spotInstance = new JobAlertsAPI("");
 
 			//Nothing wrong with instantiating manually
 			ZipRecruiter.Resource.BatchResource batchResource = new ZipRecruiter.Resource.BatchResource(spotInstance);
