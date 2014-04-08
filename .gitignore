@@ -1,3 +1,6 @@
+#ignore vim and Nano lock files
+*.swp
+
 #Ignore OS X files
 .DS_Store
 
