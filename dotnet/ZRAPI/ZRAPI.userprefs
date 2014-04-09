@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ZRAPI/Examples.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="ZRAPI/Examples.cs" Line="39" Column="88" />
-      <File FileName="ZipRecruiter/JobAlertsAPI.cs" Line="217" Column="1" />
+      <File FileName="ZRAPI/Examples.cs" Line="40" Column="42" />
+      <File FileName="ZipRecruiter/JobAlertsAPI.cs" Line="203" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
