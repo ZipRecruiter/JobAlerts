@@ -71,7 +71,7 @@ namespace ZRAPI
 			//Post a subscriber file
 
 			String fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".csv";
-			String csv = "\"user1@domain1.com\",\"Legal Assistant\",\"Houston, TX\",\"2012-05-03 09:45:23\",\n\"user2@domain2.com\",\"CEO\",\"10023\",\"2012-05-01 17:01:05\",\n\"user3@domain3.com\",\"Snakeoil Salesman\",,\"2012-05-02 12:00:01\",\"194.133.209.43\"";
+			String csv = "\"user1@example.com\",\"Legal Assistant\",\"Houston, TX\",\"2012-05-03 09:45:23\",\n\"user2@example.com\",\"CEO\",\"10023\",\"2012-05-01 17:01:05\",\n\"user3@example.com\",\"Snakeoil Salesman\",,\"2012-05-02 12:00:01\",\"194.133.209.43\"";
 			System.IO.File.AppendAllText (fileName, csv);
 
 			//var result = batchResource2.Submit(new Dictionary<String,String>(){{"type", "subscribe"},{"content",fileName}}).Call();
@@ -84,8 +84,8 @@ namespace ZRAPI
 			ZipRecruiter.Schema.SubscriberRecord subscriber = null;
 			
 			try {
-			  subscriber = instance.Resource ("subscriber").Retrieve (subscriberID:"f2c3ce7e").Call ();
-			  Console.WriteLine ("Subscriber email for f2c3ce7e: " + subscriber.EmailMD5);
+			  subscriber = instance.Resource ("subscriber").Retrieve (subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$").Call ();
+			  Console.WriteLine ("Subscriber email for $SAMPLE_EIGHT_CHARACTER_IDENTIFIER$: " + subscriber.EmailMD5);
 			} catch(Exception ex) {
 
 			}
@@ -140,29 +140,29 @@ namespace ZRAPI
 			//WebRequest class so you should wrap calls in try/catch blocks if they may fail.
 			//Note, an empty resultset will not cause an exception.
 			try {
-				jobsearch = instance.Resource("job_search").Query(subscriberID:"f2c3ce7e").Call();
+				jobsearch = instance.Resource("job_search").Query(subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$").Call();
 			} catch(Exception ex) {
 				Console.WriteLine ("An exception occured: " + ex.Message);
 			}
 
-			ZipRecruiter.Schema.JobSearchRecord jobsearch2 = instance.Resource("job_search").Retrieve(subscriberID:"f2c3ce7e",jobSearchID:"b6f2266a").Call();
+			ZipRecruiter.Schema.JobSearchRecord jobsearch2 = instance.Resource("job_search").Retrieve(subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$",jobSearchID:"b6f2266a").Call();
 
-			var jobsearch3 = instance.Resource("job_search").Query(new Dictionary<string, string>(),subscriberID:"f2c3ce7e").Call();
+			var jobsearch3 = instance.Resource("job_search").Query(new Dictionary<string, string>(),subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$").Call();
 
 			var jobsearch4 = instance.Resource("job_search").Submit(new Dictionary<string, string>(){
 				{"search","Legal Assistant"},
-				{"ip_address","108.0.247.154"},
-			},subscriberID:"f2c3ce7e").Call();
+				{"ip_address","192.0.2.20"},
+			},subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$").Call();
 
 			var jobsearch5 = instance.Resource("job_search").Query(new Dictionary<string, string>(){
 				{"location","Dallas, TX"},
-			},subscriberID:"f2c3ce7e").Call();
+			},subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$").Call();
 
 			var searchjobsearch = jobsearch5 as ZipRecruiter.Schema.JobSearchResultSet;
 
 			if (searchjobsearch != null){
 				String deactivationTarget = jobsearch5.Results[0].ID;
-				var deactivated = instance.Resource("job_search").Deactivate(subscriberID:"f2c3ce7e",jobSearchID:deactivationTarget).Call();
+				var deactivated = instance.Resource("job_search").Deactivate(subscriberID:"$SAMPLE_EIGHT_CHARACTER_IDENTIFIER$",jobSearchID:deactivationTarget).Call();
 				var obj = jobsearch5.Results[0];
 			}
 
