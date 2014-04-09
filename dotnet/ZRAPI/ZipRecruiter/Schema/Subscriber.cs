@@ -1,6 +1,6 @@
 /* Subscriber.cs
  * 
- * Copyright 2013 ZipRecruiter Inc
+ * Copyright 2013-2014 ZipRecruiter Inc
  * ZipRecruiter, Inc.
  * 1453 Third Street Promenade, Suite 335
  * Santa Monica, CA 90401
